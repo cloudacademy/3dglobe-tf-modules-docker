@@ -40,7 +40,7 @@ resource "docker_image" "microservices" {
 #   }
 
 #   labels {
-#     label = "label1"docker_image.globe_api
+#     label = "label1"
 #     value = "val1"
 #   }
 
