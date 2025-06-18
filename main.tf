@@ -11,9 +11,7 @@ provider "docker" {
   host = "unix:///var/run/docker.sock"
 }
 
-module "microservices" {
-  source = "./modules/microservices"
-
+locals {
   microservices = {
     globe_web = {
       name  = "3d-globe-web"
@@ -33,6 +31,12 @@ module "microservices" {
       }
     }
   }
+}
+
+module "microservices" {
+  source = "./modules/microservices"
+
+  microservices = local.microservices
 
   providers = {
     docker = docker
